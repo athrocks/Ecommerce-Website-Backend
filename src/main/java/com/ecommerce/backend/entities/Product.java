@@ -22,7 +22,7 @@ import java.util.UUID;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(nullable = false)
@@ -66,8 +66,8 @@ public class Product {
     @JsonIgnore
     private CategoryType categoryType;
 
-//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-//    private List<Resources> resources;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Resources> resources;
 
     @PrePersist
     protected void onCreate() {
