@@ -1,0 +1,6 @@
+CREATE DATABASE shopease;
+
+since we are using spring.jpa.hibernate.ddl-auto=update
+we do not need to creage tables seperately just DB and all will be fine
+
+in production dont do this
