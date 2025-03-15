@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/products")
@@ -18,16 +19,17 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> productList = productService.getAllProducts();
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false, name = "categoryId", value = "categoryId") UUID categoryId, @RequestParam(required = false, name = "typeId", value = "typeId") UUID typeId) {
+        List<Product> productList = productService.getAllProducts(categoryId, typeId);
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Product> addProduct(@RequestBody ProductDto productDto) {
         Product newProduct = productService.addProduct(productDto);
-        return null;
+        return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
+
 
 //    @GetMapping("/{productId}")
 //    public ProductDto getProductById(@PathVariable int productId) {

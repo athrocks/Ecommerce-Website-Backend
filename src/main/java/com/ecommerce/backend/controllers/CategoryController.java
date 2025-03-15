@@ -35,4 +35,16 @@ public class CategoryController {
         List<Category> categoryList = categoryService.getAllCategory();
         return new ResponseEntity<>(categoryList, HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Category> updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable(value = "id",required = true) UUID categoryId){
+        Category updatedCategory = categoryService.updateCategory(categoryDto,categoryId);
+        return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable(value = "id",required = true) UUID categoryId){
+        categoryService.deleteCategory(categoryId);
+        return ResponseEntity.ok().build();
+    }
 }
