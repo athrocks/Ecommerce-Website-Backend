@@ -22,6 +22,7 @@ public class ProductDto {
     private boolean isNewArrival;
     private Float rating;
     private UUID categoryId;
+    private String thumbnail;
     private String categoryName;
     private UUID categoryTypeId;
     private String categoryTypeName;
