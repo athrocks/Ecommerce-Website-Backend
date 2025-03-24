@@ -42,6 +42,9 @@ public class Product {
     @Column(nullable = false)
     private boolean isNewArrival;
 
+    @Column(nullable = false, unique = true)
+    private String slug;
+
     @Column(nullable = false, updatable = false)
 //    @Temporal(TemporalType.TIMESTAMP)
 //    private java.util.Date createdAt;
@@ -52,16 +55,16 @@ public class Product {
 //    private java.util.Date updatedAt;
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductVariant> productVariants;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id",nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     @JsonIgnore
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoryType_id",nullable = false)
+    @JoinColumn(name = "categoryType_id", nullable = false)
     @JsonIgnore
     private CategoryType categoryType;
 

@@ -23,6 +23,7 @@ public class ProductDto {
     private Float rating;
     private UUID categoryId;
     private String thumbnail;
+    private String slug;
     private String categoryName;
     private UUID categoryTypeId;
     private String categoryTypeName;
