@@ -49,20 +49,15 @@ public class ProductController {
         return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
+    @PutMapping
+    public ResponseEntity<Product> updateProduct(@RequestBody ProductDto productDto) {
+        Product product = productService.updateProduct(productDto);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
 
-//    @GetMapping("/{productId}")
-//    public ProductDto getProductById(@PathVariable int productId) {
-//        return null;
-//    }
-//
-//    @PutMapping("/{productId}")
-//    public void updateProduct() {
-//
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> deleteProduct(@PathVariable(value = "id",required = true) UUID productId) {
-//        productService.deleteCategory(productId);
-//        return ResponseEntity.ok().build();
-//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable(value = "id", required = true) UUID productId) {
+        productService.deleteCategory(productId);
+        return ResponseEntity.ok().build();
+    }
 }

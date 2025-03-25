@@ -18,5 +18,5 @@ public interface ProductService {
 
     public Product updateProduct(ProductDto productDto);
 
-//    public void deleteCategory(UUID productId);
+    public void deleteCategory(UUID productId);
 }

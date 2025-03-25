@@ -224,6 +224,7 @@ Here are multiple valid `POST` request bodies to add different products under va
   "price": 2999.99,
   "brand": "Gucci",
   "isNewArrival": true,
+  "slug": "leather-jacket",
   "rating": 4.9,
   "categoryId": "e2711512-763f-4393-8bfc-8a48abbafbec",
   "categoryTypeId": "323d63c2-a562-4a39-b616-7665d0e286e6",

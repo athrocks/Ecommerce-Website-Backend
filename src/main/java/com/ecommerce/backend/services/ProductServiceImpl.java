@@ -83,12 +83,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product updateProduct(ProductDto productDto) {
-        return null;
+        Product product = productRepository.findById(productDto.getId()).orElseThrow(() -> new ResourceNotFoundEx("Product Not Found!"));
+        return productRepository.save(productMapper.mapToProductEntity(productDto));
     }
 
-//    @Override
-//    public void deleteCategory(UUID productId) {
-//        productRepository.deleteById(productId);
-//    }
+    @Override
+    public void deleteCategory(UUID productId) {
+        productRepository.deleteById(productId);
+    }
 
 }
