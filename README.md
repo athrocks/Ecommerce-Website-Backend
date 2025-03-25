@@ -118,7 +118,7 @@ mvn spring-boot:run
 | `GET` | `/products` | Get all products |
 | `GET` | `/products/{id}` | Get product by ID |
 | `POST` | `/products` | Create a new product |
-| `PUT` | `/products/{id}` | Update a product |
+| `PUT` | `/products` | Update a product |
 | `DELETE` | `/products/{id}` | Delete a product |
 
 ### **Category Controller**
