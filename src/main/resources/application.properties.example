@@ -12,3 +12,16 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.defer-datasource-initialization=true
+
+#Mail
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=
+spring.mail.password=
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+#JWT
+jwt.auth.app=
+jwt.auth.secret_key=${JWT_KEY}
+jwt.auth.expires_in=3600
