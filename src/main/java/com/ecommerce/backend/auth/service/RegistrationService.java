@@ -68,7 +68,7 @@ public class RegistrationService {
     }
 
     public void verifyUser(String userName) {
-        User user= userDetailRepository.findByEmail(userName);
+        User user = userDetailRepository.findByEmail(userName);
         user.setEnabled(true);
         userDetailRepository.save(user);
     }
