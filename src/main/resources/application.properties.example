@@ -16,6 +16,7 @@ spring.jpa.defer-datasource-initialization=true
 #Mail
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
+#enter username as email on which app password created -> How to create App Password check EmailService comment in auth dir
 spring.mail.username=
 spring.mail.password=
 spring.mail.properties.mail.smtp.auth=true
@@ -23,5 +24,6 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 
 #JWT
 jwt.auth.app=
+# to generate secret_key either do randomly or use "openssl rand -base64 32" in terminal
 jwt.auth.secret_key=${JWT_KEY}
 jwt.auth.expires_in=3600

@@ -14,10 +14,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+
+    @Autowired
+    private JWTTokenHelper jwtTokenHelper;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -34,7 +38,8 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/products", "/api/category").permitAll()
                         .anyRequest()
                         .authenticated()
-                );
+                )
+                .addFilterBefore(new JWTAuthenticationFilter(jwtTokenHelper, userDetailsService), UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }
