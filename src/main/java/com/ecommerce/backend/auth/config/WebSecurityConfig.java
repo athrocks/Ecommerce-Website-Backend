@@ -28,10 +28,6 @@ public class WebSecurityConfig {
     @Autowired
     private UserDetailsService userDetailsService;
 
-//    @Autowired
-//    private CorsConfigurationSource corsConfigurationSource;
-
-
     private static final String[] publicApis = {
             "/api/auth/**"
     };
@@ -39,7 +35,6 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-//                .cors(cors -> cors.configurationSource(corsConfigurationSource))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
