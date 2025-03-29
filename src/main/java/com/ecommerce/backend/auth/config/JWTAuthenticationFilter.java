@@ -51,6 +51,5 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
             throw new RuntimeException(e);
         }
 
-
     }
 }
